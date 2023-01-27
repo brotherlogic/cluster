@@ -77,3 +77,10 @@
     src: /usr/local/bin/k3s
     dest: /usr/local/bin/crictl
     state: link
+
+- name: Sync .kube config
+  ansible.posix.synchronize:
+    src: /home/simon/.kube/
+    dest: /home/simon/.kube
+    mode: pull
+    recursive: true
